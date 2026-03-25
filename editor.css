@@ -1,0 +1,105 @@
+.dummy-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    background-color: #653f76;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 4rem;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.webpage-editor-area {
+    width: 65%;
+    height: 100%;
+    background-color: #7b7b7b;
+    /* background-image: url("webpage-editor-area-bg.png");
+    background-repeat: repeat;
+    background-size: 20% 20%; */
+    margin: 0;
+    border-radius: 0;
+}
+
+.chatbot-conversation-area {
+    width: 35%;
+    height: 100%;
+    background-color: #dbdbdb;
+    margin: 0;
+    border-radius: 0;
+    flex-direction: column;
+}
+
+.conversation-title-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+    padding: 1rem;
+    background-color:#ffffff;
+    color: #4a148c;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 0rem;
+    border-bottom: 2px solid #ffffff;
+    /* box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5); */
+    /* margin: 1rem; */
+}
+
+.conversation-title {
+    padding-bottom: 1rem;
+    /* background-color: pink; */
+    /* margin-left:15rem; */
+    /* border: 3px solid #4a148c; */
+    width: fit-content;
+    padding: 0.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(68, 68, 68, 0.25);
+}
+
+.user-project-meta-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    color: #4a148c;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 0rem;
+    /* border: none; */
+    box-shadow: none;
+}
+
+.chatbot-title-emoji {
+    width: 1.6em;
+    height: 1.2em;
+    vertical-align: top;
+    margin-left: 0.5em;
+    /* margin-right: 0.5em; */
+}
+
+.user-project-description-emoji {
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 0.3em;
+    /* vertical-align: top; */
+    /* margin-left: 0.5em; */
+    /* margin-right: 0.5em; */
+    border-radius: 50%;
+    border: 2px solid #4a148c;
+}
+

@@ -6,6 +6,7 @@
     <title>AI Webpage Editor</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="editor.css">
 </head>
 <body>
 <header>
@@ -19,6 +20,19 @@
     </nav>
 </header>
 <main>
+    <section class="webpage-editor-area"></section>
+    <section class="chatbot-conversation-area">
+        <div class="conversation-title-area">
+            <p class="conversation-title">  
+                Chatbot
+                <img src="chatbot-title-emoji.png" alt="Chatbot Emoji" class="chatbot-title-emoji">
+            </p>
+            <div class="user-project-meta-data">
+                <p class="user-project-title">Project Name</p>
+                <p class="user-project-description"><img src="user-project-description-emoji.png" alt="Chatbot Emoji" class="user-project-description-emoji"></p>
+            </div>
+        </div>
+    </section>
 </main>
 <footer class="dummy-footer">
     <div class="dummy-footer-brand">
@@ -32,5 +46,17 @@
     </div>
     <p class="dummy-footer-copy">© 2026 AI Website Editor. All rights reserved.</p>
 </footer>
+<script>
+  const navLinks = document.querySelectorAll(".page-links a");
+  const currentPage = window.location.pathname.split("/").pop() || "main-page.html";
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("nav-active");
+    } else {
+      link.classList.remove("nav-active");
+    }
+  });
+</script>
 </body>
 </html>

@@ -78,6 +78,17 @@
 
 
 <script>
+  const navLinks = document.querySelectorAll(".page-links a");
+  const currentPage = window.location.pathname.split("/").pop() || "main-page.html";
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("nav-active");
+    } else {
+      link.classList.remove("nav-active");
+    }
+  });
+
   const sidePanelGroup = document.querySelector(".side-panel-button-group");
   const sidePanelSelectedText = document.querySelector(".side-panel-button-selected");
   const optionItems = document.querySelectorAll(".hover-box-option");

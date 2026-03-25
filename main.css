@@ -267,7 +267,6 @@
     width: 52px;
     height: 100%;
     margin-left: -52px;
-    background: linear-gradient(to right, rgba(248, 249, 250, 0), rgba(248, 249, 250, 1));
     pointer-events: none;
     z-index: 2;
 }
