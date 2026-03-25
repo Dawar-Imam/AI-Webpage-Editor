@@ -20,7 +20,13 @@
     </nav>
 </header>
 <main>
-    <section class="webpage-editor-area"></section>
+    <section class="webpage-editor-area">
+        <div class="editor-placeholder">
+            <span class="editor-placeholder-icon">🖥️</span>
+            <h3>Webpage Preview</h3>
+            <p>Describe what you want to build in the chat and your webpage will appear here.</p>
+        </div>
+    </section>
     <section class="chatbot-conversation-area">
         <div class="conversation-title-area">
             <p class="conversation-title">  
@@ -29,9 +35,34 @@
             </p>
             <div class="user-project-meta-data">
                 <p class="user-project-title">Project Name</p>
-                <p class="user-project-description"><img src="user-project-description-emoji.png" alt="Chatbot Emoji" class="user-project-description-emoji"></p>
+                <p class="user-project-description">
+                  <span class="user-project-description-wrap">
+                    <img src="user-project-description-emoji.png" alt="Chatbot Emoji" class="user-project-description-emoji">
+                    <span class="user-project-description-hint">This will contain meta-data about user project.</span>
+                  </span>
+                </p>
             </div>
         </div>
+        <div class="chat-area"></div>
+        <div class="user-message-area">
+          <button class="model-selection-button">
+            <p class="model-name">Auto</p>
+            <span class="traingle"></span>
+            <div class="models-hover-box">
+              <div class="models-hover-box-title">Switch Model</div>
+              <ul class="hover-box-options">
+                <li class="hover-box-option">Auto (Default)</li>
+                <li class="hover-box-option">Claude Sonnet 4.6</li>
+                <li class="hover-box-option">GPT 4.1 mini</li>
+                <li class="hover-box-option">GPT 5 nano</li>
+              </ul>
+            </div>
+          </button>
+          <textarea id="chat-message" placeholder="Chat about your webpage here ..." rows="1"></textarea>
+          <img src="send-msg-button.png" alt="Chatbot Emoji" class="send-msg-button-emoji">
+        </div>
+        <!-- <button>                
+        </button> -->
     </section>
 </main>
 <footer class="dummy-footer">
@@ -47,6 +78,7 @@
     <p class="dummy-footer-copy">© 2026 AI Website Editor. All rights reserved.</p>
 </footer>
 <script>
+  /* ── Nav active link ── */
   const navLinks = document.querySelectorAll(".page-links a");
   const currentPage = window.location.pathname.split("/").pop() || "main-page.html";
   navLinks.forEach((link) => {
@@ -55,6 +87,57 @@
       link.classList.add("nav-active");
     } else {
       link.classList.remove("nav-active");
+    }
+  });
+
+  /* ── Chat ── */
+  const chatArea   = document.querySelector(".chat-area");
+  const textarea   = document.getElementById("chat-message");
+  const sendBtn    = document.querySelector(".send-msg-button-emoji");
+
+  function addMessage(text, role) {
+    const wrapper = document.createElement("div");
+    wrapper.className = `chat-message-wrapper ${role}`;
+
+    const bubble = document.createElement("div");
+    bubble.className = "chat-bubble";
+    bubble.textContent = text;
+
+    wrapper.appendChild(bubble);
+    chatArea.appendChild(wrapper);
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
+
+  /* Greeting on load */
+  addMessage("Hi there! 👋 I'm your AI assistant. Describe what changes you'd like to make to your webpage and I'll help you build it.", "ai");
+
+  /* Auto-grow textarea */
+  textarea.addEventListener("input", function () {
+    this.style.height = "auto";
+    this.style.height = this.scrollHeight + "px";
+  });
+
+  /* Send message */
+  function sendMessage() {
+    const text = textarea.value.trim();
+    if (!text) return;
+
+    addMessage(text, "user");
+    textarea.value = "";
+    textarea.style.height = "auto";
+
+    /* Placeholder AI reply — replace with real API call later */
+    setTimeout(() => {
+      addMessage("Got it! I'm working on a response. (AI backend coming soon.)", "ai");
+    }, 800);
+  }
+
+  sendBtn.addEventListener("click", sendMessage);
+
+  textarea.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
     }
   });
 </script>
