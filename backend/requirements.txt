@@ -1,0 +1,7 @@
+# Backend dependencies
+# FastAPI framework and related packages
+fastapi
+uvicorn[standard]
+python-dotenv
+
+# Database and ORM
